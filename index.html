@@ -94,15 +94,57 @@
       margin-top: 1rem;
       height: 300px;
     }
+    .boton-waze,
+    .boton-maps,
+    .boton-spotify {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .boton-waze {
+      background-color: #50b7f5;
+      color: #fff;
+    }
+    .boton-maps {
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #ccc;
+    }
+    .boton-spotify {
+      background-color: #1db954;
+      color: #fff;
+    }
+    .boton-spotify img,
+    .boton-waze img,
+    .boton-maps img {
+      width: 20px;
+      height: 20px;
+    }
     .pantone {
       display: flex;
-      gap: 4px;
-      margin: 0.5rem 0;
+      gap: 8px;
+      margin: 1rem 0;
     }
-    .pantone div {
-      width: 30px;
-      height: 30px;
+    .pantone-card {
+      width: 70px;
+      height: 110px;
       border: 1px solid #bbb;
+      display: flex;
+      flex-direction: column;
+    }
+    .pantone-color {
+      flex-grow: 1;
+    }
+    .pantone-label {
+      background: #fff;
+      color: #000;
+      font-size: 0.7rem;
+      text-align: center;
+      padding: 0.2rem 0;
     }
     form {
       display: flex;
@@ -154,25 +196,43 @@
   <p><strong>¡SER MEGA PUNTUALES!</strong></p>
   <p>Sabemos que es tentador remolonear, pero este día es diferente. Necesitamos que pongan sus alarmas, activen el Waze y lleguen el sábado 4 de octubre a las 12:30 hs. EN PUNTO. Los que lleguen tarde le deberán una ronda a los novios (y tenemos memoria).</p>
   <p>La cita es en "El Solar de Belén", un lugar soñado en Belén de Escobar.<br/>📍 Dirección: Juan Mermoz Nte. 3050.</p>
-  <p>Para que no haya dudas, van a reconocer la entrada al toque gracias a la foto que les dejamos acá abajo.</p>
-  <p>¿Código de vestimenta? "FORMAL".<br/>Traducción: pónganse eso con lo que se miren al espejo y digan "¡faaa, qué bomba!".<br/>Con que se sientan lindos y cómodos, para nosotros es un 10. (Sugerimos buscar inspo en Pinterest)</p>
-  <p>Aclaración: Esta es la gama de colores que pedimos evitar.</p>
-  <div class="pantone">
-    <div style="background-color:#ffffff"></div>
-    <div style="background-color:#fff0f5"></div>
-    <div style="background-color:#ffe4ec"></div>
-    <div style="background-color:#ffd9e3"></div>
-    <div style="background-color:#ffccd9"></div>
-    <div style="background-color:#ffc0d0"></div>
-  </div>
-  <p>Eso sí, un DATITO CLAVE: el lugar es puro pasto. Chicas (y chicos audaces, acá no vamos a andar juzgando), ¡cuidado con los tacos aguja!<br/>Elijan un calzado que les permita caminar por el césped sin hundirse y, sobre todo, ¡bailar hasta que duelan los pies!</p>
-  <p>¡Los esperamos para celebrar, comer rico y reírnos sin parar!</p>
   <div class="mapa">
     <img src="./img/139109657.jpg" alt="Foto del lugar El Solar de Belén" />
     <iframe src="https://maps.google.com/maps?q=Juan+Mermoz+Nte+3050+Bel%C3%A9n+de+Escobar&output=embed" loading="lazy"></iframe>
-    <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank">Ver en Google Maps</a>
-    <a href="https://www.waze.com/ul?ll=-34.3173713,-58.7945616&navigate=yes" target="_blank">Ir con Waze</a>
+    <a class="boton-maps" href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank"><img src="./img/google-maps.svg" alt="Google Maps"/>Ver en Google Maps</a>
+    <a class="boton-waze" href="https://www.waze.com/ul?ll=-34.3173713,-58.7945616&navigate=yes" target="_blank"><img src="./img/waze.svg" alt="Waze"/>Ir con Waze</a>
   </div>
+  <p>Para que no haya dudas, van a reconocer la entrada al toque gracias a la foto que les dejamos acá arriba.</p>
+  <p>¿Código de vestimenta? "FORMAL".<br/>Traducción: pónganse eso con lo que se miren al espejo y digan "¡faaa, qué bomba!".<br/>Con que se sientan lindos y cómodos, para nosotros es un 10. (Sugerimos buscar inspo en Pinterest)</p>
+  <p>Aclaración: Esta es la gama de colores que pedimos evitar.</p>
+  <div class="pantone">
+    <div class="pantone-card">
+      <div class="pantone-color" style="background-color:#ffffff"></div>
+      <div class="pantone-label">Pantone</div>
+    </div>
+    <div class="pantone-card">
+      <div class="pantone-color" style="background-color:#fff0f5"></div>
+      <div class="pantone-label">Pantone</div>
+    </div>
+    <div class="pantone-card">
+      <div class="pantone-color" style="background-color:#ffe4ec"></div>
+      <div class="pantone-label">Pantone</div>
+    </div>
+    <div class="pantone-card">
+      <div class="pantone-color" style="background-color:#ffd9e3"></div>
+      <div class="pantone-label">Pantone</div>
+    </div>
+    <div class="pantone-card">
+      <div class="pantone-color" style="background-color:#ffccd9"></div>
+      <div class="pantone-label">Pantone</div>
+    </div>
+    <div class="pantone-card">
+      <div class="pantone-color" style="background-color:#ffc0d0"></div>
+      <div class="pantone-label">Pantone</div>
+    </div>
+  </div>
+  <p>Eso sí, un DATITO CLAVE: el lugar es puro pasto. Chicas (y chicos audaces, acá no vamos a andar juzgando), ¡cuidado con los tacos aguja!<br/>Elijan un calzado que les permita caminar por el césped sin hundirse y, sobre todo, ¡bailar hasta que duelan los pies!</p>
+  <p>¡Los esperamos para celebrar, comer rico y reírnos sin parar!</p>
 </section>
   <section id="confirmacion">
     <h2>Confirmación de asistencia</h2>
@@ -217,7 +277,9 @@
   <p><strong>🚫 ADVERTENCIA NIVEL APOCALIPSIS:</strong><br/>El que pide un tema de Arjona, aunque sea en joda,<br/>se sienta en la mesa de los niños y se queda sin postre.<br/>Están avisados.</p>
   <p>Listo. Manden sus temas.<br/>No cuelguen.</p>
   <p style="text-align: center; margin-top: 1rem;">
-    <a href="https://open.spotify.com/playlist/6qaHVUAWvbY3Op6z6GYTgG" target="_blank" style="color: #87cefa; text-decoration: underline;">Ir a la Playlist en Spotify</a>
+    <a class="boton-spotify" href="https://open.spotify.com/playlist/6qaHVUAWvbY3Op6z6GYTgG" target="_blank">
+      <img src="./img/spotify.svg" alt="Spotify"/>Ir a la Playlist en Spotify
+    </a>
   </p>
 </section>
   <script>
