@@ -88,15 +88,16 @@
       text-decoration: underline;
     }
     .mapa a.boton-google,
-    .mapa a.boton-waze,
-    .boton-pinterest {
-      display: inline-flex;
+    .mapa a.boton-waze {
+      display: flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      padding: 0.4rem 0.8rem;
+      padding: 0.2rem 0.4rem;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
+      width: 100%;
     }
     .mapa a.boton-google {
       color: #000;
@@ -107,6 +108,13 @@
       background-color: #fff;
     }
     .boton-pinterest {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
       background-color: #e60023;
       color: #fff;
     }
@@ -127,8 +135,8 @@
       margin: 0.5rem 0;
     }
     .pantone div {
-      width: 30px;
-      height: 30px;
+      width: 45px;
+      height: 45px;
       border: 1px solid #bbb;
     }
     form {
