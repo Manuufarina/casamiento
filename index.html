@@ -13,7 +13,7 @@
     }
     body {
       font-family: 'Source Serif 4', serif;
-      background-image: url('./img/fondo-pareja.jpg');
+      background-image: url('img/fondo-pareja.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -26,7 +26,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.4);
       z-index: -1;
     }
     nav {
@@ -39,11 +39,26 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      align-items: center;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-size: 1.1rem;
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    #menu-links {
+      display: flex;
+      gap: 2rem;
     }
     section {
       max-width: 800px;
@@ -118,6 +133,14 @@
       font-weight: bold;
       font-size: 1.3rem;
     }
+    .tarjeta {
+      background: rgba(255,255,255,0.8);
+      color: #000;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      text-align: center;
+    }
     .mapa iframe {
       width: 100%;
       border: 0;
@@ -127,12 +150,12 @@
     }
     .pantone {
       display: flex;
-      gap: 4px;
+      gap: 8px;
       margin: 0.5rem 0;
     }
     .pantone div {
-      width: 30px;
-      height: 30px;
+      width: 60px;
+      height: 80px;
       border: 1px solid #bbb;
     }
     form {
@@ -158,6 +181,19 @@
       nav {
         flex-direction: column;
         gap: 1rem;
+        align-items: flex-start;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      #menu-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+      nav.abierto #menu-links {
+        display: flex;
       }
       h1 {
         font-size: 2.2rem;
@@ -173,11 +209,15 @@
 </head>
 <body>
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#ceremonia">Ceremonia y Fiesta</a>
-    <a href="#confirmacion">Confirmación</a>
-    <a href="#regalos">Regalos</a>
-    <a href="#playlist">Playlist</a>
+    <button class="menu-toggle" id="menu-toggle">☰ Menú</button>
+    <div id="menu-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#ceremonia">Ceremonia y Fiesta</a>
+      <a href="#vestimenta">Código de vestimenta</a>
+      <a href="#confirmacion">Confirmación</a>
+      <a href="#regalos">Regalos</a>
+      <a href="#playlist">Playlist</a>
+    </div>
   </nav>
 
   <section id="inicio">
@@ -207,9 +247,14 @@
   <div class="mapa">
     <img src="./img/139109657.jpg" alt="Foto del lugar El Solar de Belén" />
     <iframe src="https://maps.google.com/maps?q=Juan+Mermoz+Nte+3050+Bel%C3%A9n+de+Escobar&output=embed" loading="lazy"></iframe>
-    <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank" class="boton boton-google"><img src="https://img.icons8.com/color/48/google-maps--v1.png" alt="Google Maps" width="20"/> Ver en Google Maps</a>
-    <a href="https://www.waze.com/ul?ll=-34.3173713,-58.7945616&navigate=yes" target="_blank" class="boton boton-waze"><img src="https://img.icons8.com/color/48/waze.png" alt="Waze" width="20"/> Ir con Waze</a>
+    <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank" class="boton boton-google">Ver en Google Maps</a>
+    <a href="https://www.waze.com/ul?ll=-34.3173713,-58.7945616&navigate=yes" target="_blank" class="boton boton-waze">Ir con Waze</a>
   </div>
+  <p>Eso sí, un DATITO CLAVE: el lugar es puro pasto. Chicas (y chicos audaces, acá no vamos a andar juzgando), ¡cuidado con los tacos aguja!<br/>Elijan un calzado que les permita caminar por el césped sin hundirse y, sobre todo, ¡bailar hasta que duelan los pies!</p>
+  <p>¡Los esperamos para celebrar, comer rico y reírnos sin parar!</p>
+</section>
+<section id="vestimenta">
+  <h2>Código de vestimenta</h2>
   <p><span class="vestimenta">¿Código de vestimenta? "FORMAL".</span><br/>Traducción: pónganse eso con lo que se miren al espejo y digan "¡faaa, qué bomba!".<br/>Con que se sientan lindos y cómodos, para nosotros es un 10. (Sugerimos buscar inspo en Pinterest)</p>
   <p><a href="https://pin.it/5IIJ5IxCN" class="boton boton-pinterest" target="_blank"><img src="https://img.icons8.com/color/48/pinterest--v1.png" alt="Pinterest" width="20"/> Ver tablero en Pinterest</a></p>
   <p>Aclaración: Esta es la gama de colores que pedimos evitar.</p>
@@ -221,8 +266,6 @@
     <div style="background-color:#ffccd9"></div>
     <div style="background-color:#ffc0d0"></div>
   </div>
-  <p>Eso sí, un DATITO CLAVE: el lugar es puro pasto. Chicas (y chicos audaces, acá no vamos a andar juzgando), ¡cuidado con los tacos aguja!<br/>Elijan un calzado que les permita caminar por el césped sin hundirse y, sobre todo, ¡bailar hasta que duelan los pies!</p>
-  <p>¡Los esperamos para celebrar, comer rico y reírnos sin parar!</p>
 </section>
   <section id="confirmacion">
     <h2>Confirmación de asistencia</h2>
@@ -242,7 +285,6 @@
       </label>
       <button type="submit">Enviar</button>
     </form>
-    <p>Respuestas se envían por email a: <a href="mailto:casoriolauymanu@gmail.com">casoriolauymanu@gmail.com</a></p>
   </section>
 
 
@@ -255,7 +297,9 @@
   <p>Ayúdennos a pagar el "impuesto a la alegría"<br/>(Esto me va a costar caro pero classic KUKA)<br/>(Manuel borrá eso!!!)<br/>(Sisi gordi ya esta borrado "guiño guiño")</p>
   <p>Cualquier aporte para esta noble causa (también conocida como nuestra luna de miel) será recibido con un agradecimiento eterno y la promesa de enviarles una foto nuestra posando en la terraza de un castillo medieval en Escocia.</p>
   <p>Les dejamos los datos acá abajo para los que quieran sumarse y ayudarnos a acercarnos a la<br/>"Operación Corazón Valiente: expedición medieval".</p>
-  <p>📌 Alias en pesos: casorio.laumanupesos<br/>📌 Alias en USD: casorio.laumanudolar<br/>Banco Galicia</p>
+  <div class="tarjeta">
+    <p>📌 Alias en pesos: casorio.laumanupesos<br/>📌 Alias en USD: casorio.laumanudolar<br/>Banco Galicia</p>
+  </div>
 </section>
 
 <section id="playlist">
@@ -271,6 +315,11 @@
   </p>
 </section>
   <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('abierto');
+    });
     const cuenta = document.getElementById("cuenta-regresiva");
     const fechaObjetivo = new Date("2025-10-04T00:00:00").getTime();
     const interval = setInterval(() => {
