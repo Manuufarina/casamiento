@@ -87,24 +87,27 @@
       color: #87cefa;
       text-decoration: underline;
     }
-    .mapa a.boton-google,
-    .mapa a.boton-waze,
-    .boton-pinterest {
+    .boton {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 0.4rem 0.8rem;
+      padding: 0.5rem 1rem;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1rem;
     }
-    .mapa a.boton-google {
+    .boton-google {
       color: #000;
       background-color: #fff;
     }
-    .mapa a.boton-waze {
+    .boton-waze {
       color: #00008b;
       background-color: #fff;
+    }
+    .boton-spotify {
+      background-color: #1DB954;
+      color: #000;
     }
     .boton-pinterest {
       background-color: #e60023;
@@ -183,7 +186,7 @@
   <p>La cita es en "El Solar de Belén", un lugar soñado en Belén de Escobar.<br/>📍 Dirección: Juan Mermoz Nte. 3050.</p>
   <p>Para que no haya dudas, van a reconocer la entrada al toque gracias a la foto que les dejamos acá abajo.</p>
   <p><span class="vestimenta">¿Código de vestimenta? "FORMAL".</span><br/>Traducción: pónganse eso con lo que se miren al espejo y digan "¡faaa, qué bomba!".<br/>Con que se sientan lindos y cómodos, para nosotros es un 10. (Sugerimos buscar inspo en Pinterest)</p>
-  <p><a href="https://pin.it/5IIJ5IxCN" class="boton-pinterest" target="_blank"><img src="https://img.icons8.com/color/48/pinterest--v1.png" alt="Pinterest" width="20"/> Ver tablero en Pinterest</a></p>
+  <p><a href="https://pin.it/5IIJ5IxCN" class="boton boton-pinterest" target="_blank"><img src="https://img.icons8.com/color/48/pinterest--v1.png" alt="Pinterest" width="20"/> Ver tablero en Pinterest</a></p>
   <p>Aclaración: Esta es la gama de colores que pedimos evitar.</p>
   <div class="pantone">
     <div style="background-color:#ffffff"></div>
@@ -198,8 +201,8 @@
   <div class="mapa">
     <img src="./img/139109657.jpg" alt="Foto del lugar El Solar de Belén" />
     <iframe src="https://maps.google.com/maps?q=Juan+Mermoz+Nte+3050+Bel%C3%A9n+de+Escobar&output=embed" loading="lazy"></iframe>
-    <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank" class="boton-google"><img src="https://img.icons8.com/color/48/google-maps--v1.png" alt="Google Maps" width="20"/> Ver en Google Maps</a>
-    <a href="https://www.waze.com/ul?ll=-34.3173713,-58.7945616&navigate=yes" target="_blank" class="boton-waze"><img src="https://img.icons8.com/color/48/waze.png" alt="Waze" width="20"/> Ir con Waze</a>
+    <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank" class="boton boton-google"><img src="https://img.icons8.com/color/48/google-maps--v1.png" alt="Google Maps" width="20"/> Ver en Google Maps</a>
+    <a href="https://www.waze.com/ul?ll=-34.3173713,-58.7945616&navigate=yes" target="_blank" class="boton boton-waze"><img src="https://img.icons8.com/color/48/waze.png" alt="Waze" width="20"/> Ir con Waze</a>
   </div>
 </section>
   <section id="confirmacion">
@@ -245,7 +248,7 @@
   <p><strong>🚫 ADVERTENCIA NIVEL APOCALIPSIS:</strong><br/>El que pide un tema de Arjona, aunque sea en joda,<br/>se sienta en la mesa de los niños y se queda sin postre.<br/>Están avisados.</p>
   <p>Listo. Manden sus temas.<br/>No cuelguen.</p>
   <p style="text-align: center; margin-top: 1rem;">
-    <a href="https://open.spotify.com/playlist/6qaHVUAWvbY3Op6z6GYTgG" target="_blank" style="color: #87cefa; text-decoration: underline;">Ir a la Playlist en Spotify</a>
+    <a href="https://open.spotify.com/playlist/6qaHVUAWvbY3Op6z6GYTgG" target="_blank" class="boton boton-spotify"><img src="https://img.icons8.com/color/48/spotify--v1.png" alt="Spotify" width="20"/> Ir a la Playlist en Spotify</a>
   </p>
 </section>
   <script>
