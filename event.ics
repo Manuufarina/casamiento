@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Lau y Manu Casamiento//EN
+BEGIN:VEVENT
+UID:casamiento-lau-manu
+DTSTAMP:20240101T000000Z
+SUMMARY:Casamiento de Lau y Manu
+DTSTART;TZID=America/Argentina/Buenos_Aires:20251004T123000
+DTEND;TZID=America/Argentina/Buenos_Aires:20251004T190000
+LOCATION:El Solar de Bel\, Juan Mermoz Nte 3050\, Belén de Escobar
+DESCRIPTION:¡Los esperamos para celebrar nuestro casamiento!
+END:VEVENT
+END:VCALENDAR
