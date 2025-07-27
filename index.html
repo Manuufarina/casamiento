@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lau y Manu: Nos casamos!</title>
+  <title>Lau y Manu: Nos casamos</title>
   <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&family=Tangerine:wght@400;700&family=DM+Serif+Display&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <style>
     * {
@@ -87,6 +87,23 @@
       color: #87cefa;
       text-decoration: underline;
     }
+    .mapa iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 1rem;
+      height: 300px;
+    }
+    .pantone {
+      display: flex;
+      gap: 4px;
+      margin: 0.5rem 0;
+    }
+    .pantone div {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #bbb;
+    }
     form {
       display: flex;
       flex-direction: column;
@@ -118,7 +135,7 @@
   </nav>
 
   <section id="inicio">
-    <h1>Lau y Manu: Nos casamos!</h1>
+    <h1>Lau y Manu: Nos casamos</h1>
     <p><strong>¡Resultados Oficiales!</strong></p>
     <p>Queridos amigos y familia,</p>
     <p>Después de una campaña intensa, tenemos el placer de compartir los resultados oficiales. A pesar de nuestras diferencias, el gran ganador fue el Partido del Amor.</p>
@@ -128,17 +145,35 @@
     <div class="cuenta" id="cuenta-regresiva"></div>
   </section>
 
-  <section id="ceremonia">
-    <h2>Ceremonia y Fiesta</h2>
-    <p>¡Ahora sí! Misión Casamiento: Lean atentamente.</p>
-    <p>Queridos amigos y familia...</p>
-    <p>La cita es en "El Solar de Belén", Belén de Escobar. Dirección: Juan Mermoz Nte. 3050.</p>
-    <div class="mapa">
-      <img src="./img/139109657.jpg" alt="Foto del lugar El Solar de Belén" />
-      <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank">Ver en Google Maps</a>
-    </div>
-  </section>
 
+<section id="ceremonia">
+  <h2>Ceremonia y Fiesta</h2>
+  <p>¡Ahora sí! Misión Casamiento: Lean atentamente.</p>
+  <p>Queridos amigos y familia,</p>
+  <p>¡Llegó la hora de la verdad! Estamos increíblemente felices de invitarlos a nuestro casamiento y tenemos una sola misión para ustedes, que es crucial para que todo salga perfecto:</p>
+  <p><strong>¡SER MEGA PUNTUALES!</strong></p>
+  <p>Sabemos que es tentador remolonear, pero este día es diferente. Necesitamos que pongan sus alarmas, activen el Waze y lleguen el sábado 4 de octubre a las 12:30 hs. EN PUNTO. Los que lleguen tarde le deberán una ronda a los novios (y tenemos memoria).</p>
+  <p>La cita es en "El Solar de Belén", un lugar soñado en Belén de Escobar.<br/>📍 Dirección: Juan Mermoz Nte. 3050.</p>
+  <p>Para que no haya dudas, van a reconocer la entrada al toque gracias a la foto que les dejamos acá abajo.</p>
+  <p>¿Código de vestimenta? "FORMAL".<br/>Traducción: pónganse eso con lo que se miren al espejo y digan "¡faaa, qué bomba!".<br/>Con que se sientan lindos y cómodos, para nosotros es un 10. (Sugerimos buscar inspo en Pinterest)</p>
+  <p>Aclaración: Esta es la gama de colores que pedimos evitar.</p>
+  <div class="pantone">
+    <div style="background-color:#ffffff"></div>
+    <div style="background-color:#fff0f5"></div>
+    <div style="background-color:#ffe4ec"></div>
+    <div style="background-color:#ffd9e3"></div>
+    <div style="background-color:#ffccd9"></div>
+    <div style="background-color:#ffc0d0"></div>
+  </div>
+  <p>Eso sí, un DATITO CLAVE: el lugar es puro pasto. Chicas (y chicos audaces, acá no vamos a andar juzgando), ¡cuidado con los tacos aguja!<br/>Elijan un calzado que les permita caminar por el césped sin hundirse y, sobre todo, ¡bailar hasta que duelan los pies!</p>
+  <p>¡Los esperamos para celebrar, comer rico y reírnos sin parar!</p>
+  <div class="mapa">
+    <img src="./img/139109657.jpg" alt="Foto del lugar El Solar de Belén" />
+    <iframe src="https://maps.google.com/maps?q=Juan+Mermoz+Nte+3050+Bel%C3%A9n+de+Escobar&output=embed" loading="lazy"></iframe>
+    <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank">Ver en Google Maps</a>
+    <a href="https://www.waze.com/ul?ll=-34.3173713,-58.7945616&navigate=yes" target="_blank">Ir con Waze</a>
+  </div>
+</section>
   <section id="confirmacion">
     <h2>Confirmación de asistencia</h2>
     <form action="https://formsubmit.co/casoriolauymanu@gmail.com" method="POST">
@@ -157,26 +192,34 @@
       </label>
       <button type="submit">Enviar</button>
     </form>
+    <p>Respuestas se envían por email a: <a href="mailto:casoriolauymanu@gmail.com">casoriolauymanu@gmail.com</a></p>
   </section>
 
-  <section id="regalos">
-    <h2>Regalos</h2>
-    <p>Vamos a hablar de un tema que genera dudas: los regalos...</p>
-    <p><strong>Alias:</strong> LauBanfi</p>
-    <p><strong>CBU:</strong> 1430001713006347190013</p>
-  </section>
 
-  <section id="playlist">
-    <h2>Playlist Manu y Lau</h2>
-    <p><strong>MÚSICA: AHORA O NUNCA.</strong></p>
-    <p>Che, estamos juntando los temas para el casorio...</p>
-    <p><strong>ADVERTENCIA NIVEL DIOS:</strong> El DJ es intocable...</p>
-    <p><strong>ADVERTENCIA NIVEL APOCALIPSIS:</strong> El que pide un tema de Arjona...</p>
-    <p style="text-align: center; margin-top: 1rem;">
-      <a href="https://open.spotify.com/playlist/6qaHVUAWvbY3Op6z6GYTgG" target="_blank" style="color: #87cefa; text-decoration: underline;">Escuchar la Playlist en Spotify</a>
-    </p>
-  </section>
+<section id="regalos">
+  <h2>Regalos</h2>
+  <p>Vamos a hablar de un tema que genera dudas: los regalos.</p>
+  <p>Y la respuesta es simple: ¡te lo simplificamos, somos low cost!</p>
+  <p>Con su presencia, sus buenos deseos y sus pasos de baile prohibidos en la pista estamos más que felices.</p>
+  <p>PERO... como sabemos que la insistencia es una virtud para algunos, y si de verdad quieren tener un gesto con nosotros, les proponemos una idea:</p>
+  <p>Ayúdennos a pagar el "impuesto a la alegría"<br/>(Esto me va a costar caro pero classic KUKA)<br/>(Manuel borrá eso!!!)<br/>(Sisi gordi ya esta borrado "guiño guiño")</p>
+  <p>Cualquier aporte para esta noble causa (también conocida como nuestra luna de miel) será recibido con un agradecimiento eterno y la promesa de enviarles una foto nuestra posando en la terraza de un castillo medieval en Escocia.</p>
+  <p>Les dejamos los datos acá abajo para los que quieran sumarse y ayudarnos a acercarnos a la<br/>"Operación Corazón Valiente: expedición medieval".</p>
+  <p>📌 Alias en pesos: casorio.laumanupesos<br/>📌 Alias en USD: casorio.laumanudolar<br/>Banco Galicia</p>
+</section>
 
+<section id="playlist">
+  <h2>Playlist Manu y Lau</h2>
+  <p>🎶 MÚSICA: AHORA O NUNCA. 🎶</p>
+  <p>Che, estamos juntando los temas para el casorio.
+  Necesitamos que tiren sus HITS, esos que les da un poco de vergüenza pedir pero que saben que la rompen toda.</p>
+  <p>Ahora, la parte importante. Lean bien:</p>
+  <p><strong>🚫 ADVERTENCIA NIVEL APOCALIPSIS:</strong><br/>El que pide un tema de Arjona, aunque sea en joda,<br/>se sienta en la mesa de los niños y se queda sin postre.<br/>Están avisados.</p>
+  <p>Listo. Manden sus temas.<br/>No cuelguen.</p>
+  <p style="text-align: center; margin-top: 1rem;">
+    <a href="https://open.spotify.com/playlist/6qaHVUAWvbY3Op6z6GYTgG" target="_blank" style="color: #87cefa; text-decoration: underline;">Ir a la Playlist en Spotify</a>
+  </p>
+</section>
   <script>
     const cuenta = document.getElementById("cuenta-regresiva");
     const fechaObjetivo = new Date("2025-10-04T00:00:00").getTime();
