@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lau y Manu: Nos casamos!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&family=Tangerine:wght@400;700&family=DM+Serif+Display&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Source Serif 4', serif;
+      background-image: url('./img/fondo-pareja.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    nav {
+      background-color: #111;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-family: 'DM Serif Display', serif;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    h1 {
+      font-family: 'Rouge Script', cursive;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+    .cuenta {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+    .mapa img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    .mapa a {
+      display: block;
+      text-align: center;
+      margin-top: 0.5rem;
+      color: #87cefa;
+      text-decoration: underline;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    textarea, input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 0.7rem;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#ceremonia">Ceremonia y Fiesta</a>
+    <a href="#confirmacion">Confirmación</a>
+    <a href="#regalos">Regalos</a>
+    <a href="#playlist">Playlist</a>
+  </nav>
+
+  <section id="inicio">
+    <h1>Lau y Manu: Nos casamos!</h1>
+    <p><strong>¡Resultados Oficiales!</strong></p>
+    <p>Queridos amigos y familia,</p>
+    <p>Después de una campaña intensa, tenemos el placer de compartir los resultados oficiales. A pesar de nuestras diferencias, el gran ganador fue el Partido del Amor.</p>
+    <p>(Aunque, para ser honestos, el boca de urna ya cantaba esta victoria por goleada desde hace rato, ¡gracias por el dato!)</p>
+    <p>Así que, en nuestro primer acto de gobierno, decretamos que vamos a sellar esta unión para siempre. ¡Nos casamos!</p>
+    <p>Estamos felices de la vida y por eso les enviamos esta invitación. Queremos saber si contaremos con ustedes como testigos de este pacto. ¡Esperamos su confirmación para saber si tenemos quórum para la fiesta!</p>
+    <div class="cuenta" id="cuenta-regresiva"></div>
+  </section>
+
+  <section id="ceremonia">
+    <h2>Ceremonia y Fiesta</h2>
+    <p>¡Ahora sí! Misión Casamiento: Lean atentamente.</p>
+    <p>Queridos amigos y familia...</p>
+    <p>La cita es en "El Solar de Belén", Belén de Escobar. Dirección: Juan Mermoz Nte. 3050.</p>
+    <div class="mapa">
+      <img src="./img/139109657.jpg" alt="Foto del lugar El Solar de Belén" />
+      <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank">Ver en Google Maps</a>
+    </div>
+  </section>
+
+  <section id="confirmacion">
+    <h2>Confirmación de asistencia</h2>
+    <form action="https://formsubmit.co/casoriolauymanu@gmail.com" method="POST">
+      <label>Nombre y apellido:
+        <input type="text" name="nombre" required />
+      </label>
+      <label>¿Asistís?
+        <select name="asiste" required>
+          <option value="">Seleccioná</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </label>
+      <label>¿Tenés alguna restricción alimenticia?
+        <textarea name="restricciones" rows="3"></textarea>
+      </label>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <section id="regalos">
+    <h2>Regalos</h2>
+    <p>Vamos a hablar de un tema que genera dudas: los regalos...</p>
+    <p><strong>Alias:</strong> LauBanfi</p>
+    <p><strong>CBU:</strong> 1430001713006347190013</p>
+  </section>
+
+  <section id="playlist">
+    <h2>Playlist Manu y Lau</h2>
+    <p><strong>MÚSICA: AHORA O NUNCA.</strong></p>
+    <p>Che, estamos juntando los temas para el casorio...</p>
+    <p><strong>ADVERTENCIA NIVEL DIOS:</strong> El DJ es intocable...</p>
+    <p><strong>ADVERTENCIA NIVEL APOCALIPSIS:</strong> El que pide un tema de Arjona...</p>
+    <p style="text-align: center; margin-top: 1rem;">
+      <a href="https://open.spotify.com/playlist/6qaHVUAWvbY3Op6z6GYTgG" target="_blank" style="color: #87cefa; text-decoration: underline;">Escuchar la Playlist en Spotify</a>
+    </p>
+  </section>
+
+  <script>
+    const cuenta = document.getElementById("cuenta-regresiva");
+    const fechaObjetivo = new Date("2025-10-04T00:00:00").getTime();
+    const interval = setInterval(() => {
+      const ahora = new Date().getTime();
+      const diferencia = fechaObjetivo - ahora;
+      if (diferencia < 0) {
+        clearInterval(interval);
+        cuenta.innerHTML = "¡Hoy es el gran día!";
+        return;
+      }
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+      cuenta.innerHTML = `${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
+    }, 1000);
+  </script>
+</body>
+</html>
