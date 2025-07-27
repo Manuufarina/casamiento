@@ -113,6 +113,10 @@
       background-color: #e60023;
       color: #fff;
     }
+    .boton-calendario {
+      background-color: #fff;
+      color: #000;
+    }
     .vestimenta {
       font-weight: bold;
       font-size: 1.3rem;
@@ -153,6 +157,18 @@
       border-radius: 5px;
       cursor: pointer;
     }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -173,6 +189,9 @@
     <p>Así que, en nuestro primer acto de gobierno, decretamos que vamos a sellar esta unión para siempre. ¡Nos casamos!</p>
     <p>Estamos felices de la vida y por eso les enviamos esta invitación. Queremos saber si contaremos con ustedes como testigos de este pacto. ¡Esperamos su confirmación para saber si tenemos quórum para la fiesta!</p>
     <div class="cuenta" id="cuenta-regresiva"></div>
+    <p style="text-align: center; margin-top: 1rem;">
+      <a href="./event.ics" class="boton boton-calendario">Agregar al calendario</a>
+    </p>
   </section>
 
 
