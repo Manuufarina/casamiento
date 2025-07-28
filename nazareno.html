@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmación - Nazareno</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&family=Tangerine:wght@400;700&family=DM+Serif+Display&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Source Serif 4', serif;
+      background-image: url('img/fondo-pareja.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+    nav {
+      background-color: #111;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-family: 'DM Serif Display', serif;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    #menu-links {
+      display: flex;
+      gap: 2rem;
+    }
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    h1 {
+      font-family: 'Rouge Script', cursive;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+    .cuenta {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+    .mapa img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    .mapa a {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .boton {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .boton-google {
+      color: #000;
+      background-color: #fff;
+    }
+    .boton-waze {
+      color: #00008b;
+      background-color: #fff;
+    }
+    .boton-spotify {
+      background-color: #1DB954;
+      color: #000;
+    }
+    .boton-pinterest {
+      background-color: #e60023;
+      color: #fff;
+    }
+    .boton-calendario {
+      background-color: #fff;
+      color: #000;
+    }
+    .vestimenta {
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .tarjeta {
+      background: rgba(255,255,255,0.8);
+      color: #000;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .mapa iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 1rem;
+      height: 300px;
+    }
+    .pantone {
+      display: flex;
+      gap: 8px;
+      margin: 0.5rem 0;
+    }
+    .pantone div {
+      width: 60px;
+      height: 80px;
+      border: 1px solid #bbb;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    textarea, input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 0.7rem;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      #menu-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+      nav.abierto #menu-links {
+        display: flex;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      body {
+        background-attachment: scroll;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="menu-toggle" id="menu-toggle">☰ Menú</button>
+    <div id="menu-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#ceremonia">Ceremonia y Fiesta</a>
+      <a href="#vestimenta">Código de vestimenta</a>
+      <a href="#confirmacion">Confirmación</a>
+      <a href="#regalos">Regalos</a>
+      <a href="#playlist">Playlist</a>
+    </div>
+  </nav>
+
+  <section id="inicio">
+    <h1>Lau y Manu: Nos casamos</h1>
+    <p><strong>¡Resultados Oficiales!</strong></p>
+    <p>Queridos amigos y familia,</p>
+    <p>Después de una campaña intensa, tenemos el placer de compartir los resultados oficiales. A pesar de nuestras diferencias, el gran ganador fue el Partido del Amor.</p>
+    <p>(Aunque, para ser honestos, el boca de urna ya cantaba esta victoria por goleada desde hace rato, ¡gracias por el dato!)</p>
+    <p>Así que, en nuestro primer acto de gobierno, decretamos que vamos a sellar esta unión para siempre. ¡Nos casamos!</p>
+    <p>Estamos felices de la vida y por eso les enviamos esta invitación. Queremos saber si contaremos con ustedes como testigos de este pacto. ¡Esperamos su confirmación para saber si tenemos quórum para la fiesta!</p>
+    <div class="cuenta" id="cuenta-regresiva"></div>
+    <p style="text-align: center; margin-top: 1rem;">
+      <a href="./event.ics" class="boton boton-calendario">Agregar al calendario</a>
+    </p>
+  </section>
+
+
+<section id="ceremonia">
+  <h2>Ceremonia y Fiesta</h2>
+  <p>¡Ahora sí! Misión Casamiento: Lean atentamente.</p>
+  <p>Queridos amigos y familia,</p>
+  <p>¡Llegó la hora de la verdad! Estamos increíblemente felices de invitarlos a nuestro casamiento y tenemos una sola misión para ustedes, que es crucial para que todo salga perfecto:</p>
+  <p><strong>¡SER MEGA PUNTUALES!</strong></p>
+  <p>Sabemos que es tentador remolonear, pero este día es diferente. Necesitamos que pongan sus alarmas, activen el Waze y lleguen el sábado 4 de octubre a las 12:30 hs. EN PUNTO. Los que lleguen tarde le deberán una ronda a los novios (y tenemos memoria).</p>
+  <p>La cita es en "El Solar de Belén", un lugar soñado en Belén de Escobar.<br/>📍 Dirección: Juan Mermoz Nte. 3050.</p>
+  <p>Para que no haya dudas, van a reconocer la entrada al toque gracias a la foto que les dejamos acá abajo.</p>
+  <div class="mapa">
+    <img src="./img/139109657.jpg" alt="Foto del lugar El Solar de Belén" />
+    <iframe src="https://maps.google.com/maps?q=Juan+Mermoz+Nte+3050+Bel%C3%A9n+de+Escobar&output=embed" loading="lazy"></iframe>
+    <a href="https://www.google.com/maps/place/El+Solar+De+Bel%C3%A9n/@-34.3173713,-58.7945616,17z" target="_blank" class="boton boton-google">Ver en Google Maps</a>
+    <a href="https://www.waze.com/ul?ll=-34.3173713,-58.7945616&navigate=yes" target="_blank" class="boton boton-waze">Ir con Waze</a>
+  </div>
+  <p>Eso sí, un DATITO CLAVE: el lugar es puro pasto. Chicas (y chicos audaces, acá no vamos a andar juzgando), ¡cuidado con los tacos aguja!<br/>Elijan un calzado que les permita caminar por el césped sin hundirse y, sobre todo, ¡bailar hasta que duelan los pies!</p>
+  <p>¡Los esperamos para celebrar, comer rico y reírnos sin parar!</p>
+</section>
+<section id="vestimenta">
+  <h2>Código de vestimenta</h2>
+  <p><span class="vestimenta">¿Código de vestimenta? "FORMAL".</span><br/>Traducción: pónganse eso con lo que se miren al espejo y digan "¡faaa, qué bomba!".<br/>Con que se sientan lindos y cómodos, para nosotros es un 10. (Sugerimos buscar inspo en Pinterest)</p>
+  <p><a href="https://pin.it/5IIJ5IxCN" class="boton boton-pinterest" target="_blank"><img src="https://img.icons8.com/color/48/pinterest--v1.png" alt="Pinterest" width="20"/> Ver tablero en Pinterest</a></p>
+  <p>Aclaración: Esta es la gama de colores que pedimos evitar.</p>
+  <div class="pantone">
+    <div style="background-color:#ffffff"></div>
+    <div style="background-color:#fff0f5"></div>
+    <div style="background-color:#ffe4ec"></div>
+    <div style="background-color:#ffd9e3"></div>
+    <div style="background-color:#ffccd9"></div>
+    <div style="background-color:#ffc0d0"></div>
+  </div>
+</section>
+  <section id="confirmacion">
+    <h2>Confirmación de asistencia</h2>
+<form action="https://formsubmit.co/casoriolauymanu@gmail.com" method="POST">
+    <fieldset>
+      <legend>¿Quiénes asisten?</legend>
+      <label><input type="checkbox" name="asistentes[]" value="Nazareno"> Nazareno</label>
+    </fieldset>
+    <label for="restriccion">¿Alguien tiene alguna restricción alimenticia?</label>
+    <select name="tipo_restriccion" id="restriccion">
+      <option value="">-- Seleccionar --</option>
+      <option value="Vegetariano">Vegetariano</option>
+      <option value="Alérgico (aclarar abajo)">Alérgico (aclarar abajo)</option>
+      <option value="Celíaco">Celíaco</option>
+      <option value="SIBO">SIBO</option>
+      <option value="Otro">Otro</option>
+    </select>
+    <label for="detalle">Aclaración (Nombre y detalle):</label>
+    <textarea name="detalle_restriccion" rows="3"></textarea>
+    <button type="submit">Enviar</button>
+    <input type="hidden" name="_next" value="https://graciasporconfirmar.com">
+    <input type="hidden" name="_captcha" value="false">
+  </form>
+  </section>
+
+
+<section id="regalos">
+  <h2>Regalos</h2>
+  <p>Vamos a hablar de un tema que genera dudas: los regalos.</p>
+  <p>Y la respuesta es simple: ¡te lo simplificamos, somos low cost!</p>
+  <p>Con su presencia, sus buenos deseos y sus pasos de baile prohibidos en la pista estamos más que felices.</p>
+  <p>PERO... como sabemos que la insistencia es una virtud para algunos, y si de verdad quieren tener un gesto con nosotros, les proponemos una idea:</p>
+  <p>Ayúdennos a pagar el "impuesto a la alegría"<br/>(Esto me va a costar caro pero classic KUKA)<br/>(Manuel borrá eso!!!)<br/>(Sisi gordi ya esta borrado "guiño guiño")</p>
+  <p>Cualquier aporte para esta noble causa (también conocida como nuestra luna de miel) será recibido con un agradecimiento eterno y la promesa de enviarles una foto nuestra posando en la terraza de un castillo medieval en Escocia.</p>
+  <p>Les dejamos los datos acá abajo para los que quieran sumarse y ayudarnos a acercarnos a la<br/>"Operación Corazón Valiente: expedición medieval".</p>
+  <div class="tarjeta">
+    <p>📌 Alias en pesos: casorio.laumanupesos<br/>📌 Alias en USD: casorio.laumanudolar<br/>Banco Galicia</p>
+  </div>
+</section>
+
+<section id="playlist">
+  <h2>Playlist Manu y Lau</h2>
+  <p>🎶 MÚSICA: AHORA O NUNCA. 🎶</p>
+  <p>Che, estamos juntando los temas para el casorio.
+  Necesitamos que tiren sus HITS, esos que les da un poco de vergüenza pedir pero que saben que la rompen toda.</p>
+  <p>Ahora, la parte importante. Lean bien:</p>
+  <p><strong>🚫 ADVERTENCIA NIVEL APOCALIPSIS:</strong><br/>El que pide un tema de Arjona, aunque sea en joda,<br/>se sienta en la mesa de los niños y se queda sin postre.<br/>Están avisados.</p>
+  <p>Listo. Manden sus temas.<br/>No cuelguen.</p>
+  <p style="text-align: center; margin-top: 1rem;">
+    <a href="https://open.spotify.com/playlist/6qaHVUAWvbY3Op6z6GYTgG" target="_blank" class="boton boton-spotify"><img src="https://img.icons8.com/color/48/spotify--v1.png" alt="Spotify" width="20"/> Ir a la Playlist en Spotify</a>
+  </p>
+</section>
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('abierto');
+    });
+    const cuenta = document.getElementById("cuenta-regresiva");
+    const fechaObjetivo = new Date("2025-10-04T00:00:00").getTime();
+    const interval = setInterval(() => {
+      const ahora = new Date().getTime();
+      const diferencia = fechaObjetivo - ahora;
+      if (diferencia < 0) {
+        clearInterval(interval);
+        cuenta.innerHTML = "¡Hoy es el gran día!";
+        return;
+      }
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+      cuenta.innerHTML = `${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
+    }, 1000);
+  </script>
+</body>
+</html>
