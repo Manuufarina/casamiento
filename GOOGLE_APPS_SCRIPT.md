@@ -11,17 +11,32 @@ function doPost(e) {
   if (!sheet) {
     sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet('Respuestas');
   }
+  var asistentes = [];
+  if (e.parameters['asistentes[]']) {
+    asistentes = Array.isArray(e.parameters['asistentes[]'])
+      ? e.parameters['asistentes[]']
+      : [e.parameters['asistentes[]']];
+  }
+  if (e.parameter.nombre) {
+    asistentes.push(e.parameter.nombre);
+  }
+  var asiste = e.parameter.asiste || (asistentes.length > 0 ? 'Sí' : 'No');
+  var restricciones = e.parameter.restricciones || e.parameter.tipo_restriccion || '';
+  if (e.parameter.detalle_restriccion) {
+    restricciones += (restricciones ? ' - ' : '') + e.parameter.detalle_restriccion;
+  }
+
   sheet.appendRow([
     new Date(),
-    e.parameter.nombre,
-    e.parameter.asiste,
-    e.parameter.restricciones
+    asistentes.join(', '),
+    asiste,
+    restricciones
   ]);
 
   MailApp.sendEmail('casoriolauymanu@gmail.com', 'Nueva confirmación',
-    'Nombre: ' + e.parameter.nombre + '\n' +
-    'Asiste: ' + e.parameter.asiste + '\n' +
-    'Restricciones: ' + (e.parameter.restricciones || 'Sin datos'));
+    'Asistentes: ' + asistentes.join(', ') + '\n' +
+    'Asiste: ' + asiste + '\n' +
+    'Restricciones: ' + (restricciones || 'Sin datos'));
 
   return ContentService.createTextOutput('ok');
 }
@@ -33,3 +48,14 @@ function doPost(e) {
    para que cada formulario envíe sus datos automáticamente.
 
 Con esa configuración, cada vez que se envíe el formulario los datos se agregarán a la hoja y se enviará un mail a la cuenta indicada.
+Al completar el formulario la página mostrará una alerta con el mensaje
+"¡Confirmación enviada!" como aviso de que la solicitud se procesó.
+
+Si ves la alerta pero los datos no aparecen en la hoja, verificá que el Apps Script esté desplegado en su última versión y que la URL copiada en los formularios coincida con la del despliegue.
+
+**Nota:** No ejecutes la función *doPost* manualmente desde el editor porque el parámetro de evento `e` estará indefinido y aparecerá un error como 'Cannot read properties of undefined (reading \'parameter\')'. Debe desplegarse el script como Web App y luego enviarle la solicitud POST desde el formulario.
+Si al enviar el formulario obtienes un "401 Unauthorized" revisa la configuración del despliegue. Debe estar habilitada la opción *Anyone* para permitir el acceso anónimo. Asegúrate también de usar la URL correcta que genera el despliegue.
+
+Un error "405 Method Not Allowed" suele indicar que se abrió la URL del script directamente en el navegador. El Apps Script solo acepta solicitudes POST desde los formularios.
+
+Si ves un mensaje sobre "Cross-Origin Read Blocking" (CORB) en la consola del navegador, no es un error de la página. Google Apps Script responde con HTML y el navegador bloquea esa respuesta, pero la solicitud POST se procesa igual.

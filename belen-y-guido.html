@@ -269,7 +269,7 @@
 </section>
   <section id="confirmacion">
     <h2>Confirmación de asistencia</h2>
-<form id="confirm-form" action="https://formsubmit.co/casoriolauymanu@gmail.com" method="POST">
+<form id="confirm-form" method="POST">
     <fieldset>
       <legend>¿Quiénes asisten?</legend>
       <label><input type="checkbox" name="asistentes[]" value="Belen"> Belen</label>
@@ -285,10 +285,8 @@
       <option value="Otro">Otro</option>
     </select>
     <label for="detalle">Aclaración (Nombre y detalle):</label>
-    <textarea name="detalle_restriccion" rows="3"></textarea>
+    <textarea name="detalle_restriccion" id="detalle" rows="3"></textarea>
     <button type="submit">Enviar</button>
-    <input type="hidden" name="_next" value="https://graciasporconfirmar.com">
-    <input type="hidden" name="_captcha" value="false">
   </form>
   </section>
 
@@ -346,10 +344,13 @@
     const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw_Cf0X778WWDDKCoT0MUgEv3Tce90fjXv252auaELvaYiioGBuKIGzwcZUkbijyfUx/exec';
     const confirmForm = document.getElementById('confirm-form');
     confirmForm.addEventListener('submit', (e) => {
+      e.preventDefault();
       // se envía en segundo plano a Google Sheets
-      fetch(googleScriptURL, { method: 'POST', body: new FormData(confirmForm) })
-        .catch(err => console.error('Error enviando a Google Sheets', err));
+      fetch(googleScriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(confirmForm) })
+        .then(() => { alert('¡Confirmación enviada!'); confirmForm.reset(); })
+        .catch(err => { alert('Hubo un problema al enviar la confirmacion'); console.error('Error enviando a Google Sheets', err); });
     });
 
+  </script>
 </body>
 </html>
