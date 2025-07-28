@@ -342,7 +342,7 @@
     const confirmForm = document.getElementById('confirm-form');
     confirmForm.addEventListener('submit', (e) => {
       // se envía en segundo plano a Google Sheets
-      fetch(googleScriptURL, { method: 'POST', body: new FormData(confirmForm) })
+      fetch(googleScriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(confirmForm) })
         .catch(err => console.error('Error enviando a Google Sheets', err));
     });
   </script>
