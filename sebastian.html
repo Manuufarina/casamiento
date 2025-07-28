@@ -269,7 +269,7 @@
 </section>
   <section id="confirmacion">
     <h2>Confirmación de asistencia</h2>
-<form id="confirm-form" action="https://formsubmit.co/casoriolauymanu@gmail.com" method="POST">
+<form id="confirm-form" method="POST">
     <fieldset>
       <legend>¿Quiénes asisten?</legend>
       <label><input type="checkbox" name="asistentes[]" value="Sebastián"> Sebastián</label>
@@ -344,10 +344,12 @@
     const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw_Cf0X778WWDDKCoT0MUgEv3Tce90fjXv252auaELvaYiioGBuKIGzwcZUkbijyfUx/exec';
     const confirmForm = document.getElementById('confirm-form');
     confirmForm.addEventListener('submit', (e) => {
+      e.preventDefault();
       // se envía en segundo plano a Google Sheets
       fetch(googleScriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(confirmForm) })
         .catch(err => console.error('Error enviando a Google Sheets', err));
     });
 
+  </script>
 </body>
 </html>
