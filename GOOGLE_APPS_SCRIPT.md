@@ -33,3 +33,5 @@ function doPost(e) {
    para que cada formulario envíe sus datos automáticamente.
 
 Con esa configuración, cada vez que se envíe el formulario los datos se agregarán a la hoja y se enviará un mail a la cuenta indicada.
+
+**Nota:** No ejecutes la función *doPost* manualmente desde el editor porque el parámetro de evento `e` estará indefinido y aparecerá un error como 'Cannot read properties of undefined (reading \'parameter\')'. Debe desplegarse el script como Web App y luego enviarle la solicitud POST desde el formulario.
