@@ -269,7 +269,7 @@
 </section>
   <section id="confirmacion">
     <h2>Confirmación de asistencia</h2>
-<form action="https://formsubmit.co/casoriolauymanu@gmail.com" method="POST">
+<form id="confirm-form" action="https://formsubmit.co/casoriolauymanu@gmail.com" method="POST">
     <fieldset>
       <legend>¿Quiénes asisten?</legend>
       <label><input type="checkbox" name="asistentes[]" value="Franco"> Franco</label>
@@ -342,6 +342,15 @@
       const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
       cuenta.innerHTML = `${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
     }, 1000);
-  </script>
+  
+    // Enviar datos también a Google Sheets mediante un Apps Script
+    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw_Cf0X778WWDDKCoT0MUgEv3Tce90fjXv252auaELvaYiioGBuKIGzwcZUkbijyfUx/exec';
+    const confirmForm = document.getElementById('confirm-form');
+    confirmForm.addEventListener('submit', (e) => {
+      // se envía en segundo plano a Google Sheets
+      fetch(googleScriptURL, { method: 'POST', body: new FormData(confirmForm) })
+        .catch(err => console.error('Error enviando a Google Sheets', err));
+    });
+
 </body>
 </html>
