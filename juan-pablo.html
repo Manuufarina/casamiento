@@ -203,9 +203,14 @@
       }
       body {
         background-attachment: scroll;
+        background-size: contain;
+        background-repeat: repeat;
       }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="material.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
   <nav>
@@ -269,7 +274,7 @@
 </section>
   <section id="confirmacion">
     <h2>Confirmación de asistencia</h2>
-<form id="confirm-form" method="POST">
+<form id="confirm-form" method="POST" action="https://formsubmit.co/casoriolauymanu@gmail.com">
     <fieldset>
       <legend>¿Quiénes asisten?</legend>
       <label><input type="checkbox" name="asistentes[]" value="Juan Pablo"> Juan Pablo</label>
@@ -285,7 +290,7 @@
     </select>
     <label for="detalle">Aclaración (Nombre y detalle):</label>
     <textarea name="detalle_restriccion" rows="3"></textarea>
-    <button type="submit">Enviar</button>
+    <button class="btn waves-effect waves-light" type="submit">Enviar</button>
   </form>
   </section>
 
@@ -339,14 +344,34 @@
       cuenta.innerHTML = `${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
     }, 1000);
   
-    // Enviar datos también a Google Sheets mediante un Apps Script
-    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw_Cf0X778WWDDKCoT0MUgEv3Tce90fjXv252auaELvaYiioGBuKIGzwcZUkbijyfUx/exec';
-    const confirmForm = document.getElementById('confirm-form');
-    confirmForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // se envía en segundo plano a Google Sheets
-      fetch(googleScriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(confirmForm) })
-        .catch(err => console.error('Error enviando a Google Sheets', err));
+    // Enviar datos con FormSubmit
+    const emailServiceURL = 'https://formsubmit.co/ajax/casoriolauymanu@gmail.com';
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      if (window.M && M.FormSelect) {
+        M.FormSelect.init(elems);
+      }
+      const confirmForm = document.getElementById('confirm-form');
+      confirmForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(emailServiceURL, { method: 'POST', body: new FormData(confirmForm) })
+          .then(function() {
+            if (window.M && M.toast) {
+              M.toast({html: '¡Confirmación enviada! Gracias.'});
+            } else {
+              alert('¡Confirmación enviada! Gracias.');
+            }
+            confirmForm.reset();
+          })
+          .catch(function(err) {
+            console.error('Error enviando a FormSubmit', err);
+            if (window.M && M.toast) {
+              M.toast({html: 'Ocurrió un error, intentá nuevamente.'});
+            } else {
+              alert('Ocurrió un error, intentá nuevamente.');
+            }
+          });
+      });
     });
 
   </script>
