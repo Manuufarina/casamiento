@@ -1,37 +1,17 @@
-# Registro de confirmaciones en Google Sheets
+# Envío de confirmaciones por correo
 
-Para guardar cada respuesta del formulario en la hoja de cálculo y enviar una copia por correo se puede usar un Google Apps Script.
+Para enviar los datos de los formularios por email se utiliza [FormSubmit](https://formsubmit.co), de modo que no es necesario programar un backend propio.
 
-1. Abrir [la planilla](https://docs.google.com/spreadsheets/d/10rUuW9rKVIxR3e18DWR321lsH4GZBVlpv_r6dq8qZ_c/edit?usp=sharing) con la cuenta de Gmail.
-2. Crear un nuevo script desde `Extensiones -> Apps Script` y pegar el siguiente código:
-
-```javascript
-function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Respuestas');
-  if (!sheet) {
-    sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet('Respuestas');
-  }
-  sheet.appendRow([
-    new Date(),
-    e.parameter.nombre,
-    e.parameter.asiste,
-    e.parameter.restricciones
-  ]);
-
-  MailApp.sendEmail('casoriolauymanu@gmail.com', 'Nueva confirmación',
-    'Nombre: ' + e.parameter.nombre + '\n' +
-    'Asiste: ' + e.parameter.asiste + '\n' +
-    'Restricciones: ' + (e.parameter.restricciones || 'Sin datos'));
-
-  return ContentService.createTextOutput('ok');
-}
-```
-
-3. Guardar y desplegar el script seleccionando **Deploy -> New deployment**, tipo **Web app**. Elegir que pueda ser ejecutado por *Anyone*.
-4. Copiar la URL que genera el despliegue. En este proyecto ya se configuró la URL
-   `https://script.google.com/macros/s/AKfycbw_Cf0X778WWDDKCoT0MUgEv3Tce90fjXv252auaELvaYiioGBuKIGzwcZUkbijyfUx/exec`
-   para que cada formulario envíe sus datos automáticamente.
-
-Con esa configuración, cada vez que se envíe el formulario los datos se agregarán a la hoja y se enviará un mail a la cuenta indicada.
-
-**Nota:** No ejecutes la función *doPost* manualmente desde el editor porque el parámetro de evento `e` estará indefinido y aparecerá un error como 'Cannot read properties of undefined (reading \'parameter\')'. Debe desplegarse el script como Web App y luego enviarle la solicitud POST desde el formulario.
+1. Registrá la cuenta `casoriolauymanu@gmail.com` en el sitio de FormSubmit.
+2. El formulario puede apuntar directamente al servicio con:
+   ```html
+   <form action="https://formsubmit.co/el/digaza" method="POST">
+   ```
+3. En el código se usa la versión AJAX de la URL para mostrar un mensaje sin abandonar la página:
+   ```javascript
+   const emailServiceURL = 'https://formsubmit.co/ajax/el/digaza';
+   fetch(emailServiceURL, { method: 'POST', body: new FormData(form) })
+     .then(() => M.toast({html: '¡Confirmación enviada! Gracias.'}))
+     .catch(() => M.toast({html: 'Ocurrió un error, intentá nuevamente.'}));
+   ```
+4. Con esto cada envío llegará a la casilla indicada con los datos del formulario.
