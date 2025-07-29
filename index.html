@@ -206,6 +206,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="material.css">
 </head>
 <body>
   <nav>
@@ -283,7 +284,7 @@
       <label>¿Tenés alguna restricción alimenticia?
         <textarea name="restricciones" rows="3"></textarea>
       </label>
-      <button type="submit">Enviar</button>
+      <button class="btn waves-effect waves-light" type="submit">Enviar</button>
     </form>
   </section>
 
@@ -339,6 +340,10 @@
 
     // Enviar datos también a Google Sheets mediante un Apps Script
     const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw_Cf0X778WWDDKCoT0MUgEv3Tce90fjXv252auaELvaYiioGBuKIGzwcZUkbijyfUx/exec';
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll("select");
+      M.FormSelect.init(elems);
+    });
     const confirmForm = document.getElementById('confirm-form');
     confirmForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -347,5 +352,6 @@
         .catch(err => console.error('Error enviando a Google Sheets', err));
     });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
