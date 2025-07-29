@@ -1,37 +1,24 @@
-# Registro de confirmaciones en Google Sheets
+# Envío de confirmaciones por correo
 
-Para guardar cada respuesta del formulario en la hoja de cálculo y enviar una copia por correo se puede usar un Google Apps Script.
+Para que cada respuesta del formulario se envíe por correo electrónico podés usar un Google Apps Script sencillo.
 
-1. Abrir [la planilla](https://docs.google.com/spreadsheets/d/10rUuW9rKVIxR3e18DWR321lsH4GZBVlpv_r6dq8qZ_c/edit?usp=sharing) con la cuenta de Gmail.
-2. Crear un nuevo script desde `Extensiones -> Apps Script` y pegar el siguiente código:
+1. Abrí [Google Apps Script](https://script.google.com/) con tu cuenta de Gmail y creá un proyecto nuevo.
+2. Pegá el siguiente código:
 
 ```javascript
 function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Respuestas');
-  if (!sheet) {
-    sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet('Respuestas');
-  }
-  sheet.appendRow([
-    new Date(),
-    e.parameter.nombre,
-    e.parameter.asiste,
-    e.parameter.restricciones
-  ]);
-
-  MailApp.sendEmail('casoriolauymanu@gmail.com', 'Nueva confirmación',
-    'Nombre: ' + e.parameter.nombre + '\n' +
-    'Asiste: ' + e.parameter.asiste + '\n' +
-    'Restricciones: ' + (e.parameter.restricciones || 'Sin datos'));
-
+  var datos = e.parameters;
+  var texto = Object.keys(datos).map(function(k) {
+    var v = datos[k];
+    if (Array.isArray(v)) v = v.join(', ');
+    return k + ': ' + v;
+  }).join('\n');
+  MailApp.sendEmail('casoriolauymanu@gmail.com', 'Nueva confirmación', texto);
   return ContentService.createTextOutput('ok');
 }
 ```
 
-3. Guardar y desplegar el script seleccionando **Deploy -> New deployment**, tipo **Web app**. Elegir que pueda ser ejecutado por *Anyone*.
-4. Copiar la URL que genera el despliegue. En este proyecto ya se configuró la URL
-   `https://script.google.com/macros/s/AKfycbw_Cf0X778WWDDKCoT0MUgEv3Tce90fjXv252auaELvaYiioGBuKIGzwcZUkbijyfUx/exec`
-   para que cada formulario envíe sus datos automáticamente.
+3. Desplegalo desde **Deploy -> New deployment** como **Web app** y permití que sea ejecutado por *Anyone*.
+4. Copiá la URL que genera el despliegue y usala como `action` o en la llamada `fetch` de cada formulario.
 
-Con esa configuración, cada vez que se envíe el formulario los datos se agregarán a la hoja y se enviará un mail a la cuenta indicada.
-
-**Nota:** No ejecutes la función *doPost* manualmente desde el editor porque el parámetro de evento `e` estará indefinido y aparecerá un error como 'Cannot read properties of undefined (reading \'parameter\')'. Debe desplegarse el script como Web App y luego enviarle la solicitud POST desde el formulario.
+Con esto cada envío llegará directamente a `casoriolauymanu@gmail.com` con los datos de confirmación.
